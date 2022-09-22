@@ -96,7 +96,7 @@ supp %>%
          disposition_region != "") %>%
   pivot_wider(id_cols = larg_yr, names_from = disposition_region, values_from = p)
 
-#releases by region table (table 4)
+#table 4
 supp %>%
   group_by(larg_yr, disposition_region, larg_rel_decision) %>%
   summarise(n = n()) %>%
