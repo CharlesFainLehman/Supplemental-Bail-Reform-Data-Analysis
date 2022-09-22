@@ -1,6 +1,8 @@
 library(tidyverse)
 theme_set(theme_minimal())
 
+#don't forget to download the data
+#https://www.criminaljustice.ny.gov/crimnet/ojsa/stats.htm
 supp <- read.csv("Supplemental_Pretrial_Release_Data.csv") %>%
   filter(larg_yr >= 2019, #I use the lower, rather than upper, court arraignment year because the former is available in 99% of cases, while the latter is available in only 13%
          !larg_rel_decision %in% c("", "Disposed at arraign", "Unknown")) %>% #drop those without an outcome or disposed at arraignment) 
