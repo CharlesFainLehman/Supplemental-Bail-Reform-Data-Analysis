@@ -5,7 +5,7 @@ theme_set(theme_minimal())
 #https://www.criminaljustice.ny.gov/crimnet/ojsa/stats.htm
 supp <- read.csv("Supplemental_Pretrial_Release_Data.csv") %>%
   filter(larg_yr >= 2019, #I use the lower, rather than upper, court arraignment year because the former is available in 99% of cases, while the latter is available in only 13%
-         !larg_rel_decision %in% c("", "Disposed at arraign", "Unknown")) %>% #drop those without an outcome or disposed at arraignment) 
+         !larg_rel_decision %in% c("", "Disposed at arraign", "Unknown")) %>% #drop those without a reported release decision or disposed at arraignment) 
   mutate(rearrested_180 = ifelse(rearr_vfo_180 == "Yes" | rearr_nonvfo_180 == "Yes" | rearr_misd_180 == "Yes" | rearr_fire_180 == "Yes", "Yes", "No"), #combined rearrested in 180 days flag
          rearrested_ever = ifelse(rearr_vfo == "Yes" | rearr_nonvfo == "Yes" | rearr_misd == "Yes" | rearr_fire == "Yes", "Yes", "No")) #combined ever rearrested flag
   
