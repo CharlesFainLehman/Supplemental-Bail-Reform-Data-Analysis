@@ -1,4 +1,4 @@
-library(tidyverse)
+require(tidyverse)
 theme_set(theme_minimal())
 
 #don't forget to download the data
